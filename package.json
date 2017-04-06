@@ -1,8 +1,9 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "fluxbox-wiki.org",
+  "description": "fluxbox-wiki homepage, created with Gatsby Static Site Generator",
+  "homepage": "https://fluxbox-wiki.org/",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "sillyslux <sillyslux@net.hr>",
   "dependencies": {
     "front-matter": "^2.1.2",
     "gatsby": "^0.12.36",
@@ -28,9 +29,10 @@
     "gh-pages": "^0.12.0"
   },
   "keywords": [
-    "gatsby"
+    "fluxbox",
+    "fluxbox-wiki"
   ],
-  "license": "MIT",
+  "license": "unknown",
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
