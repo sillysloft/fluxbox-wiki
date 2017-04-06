@@ -9,7 +9,6 @@
     "gatsby": "^0.12.36",
     "highlight.js": "^9.8.0",
     "history": "^2.0.2",
-    "js-yaml": "^3.8.1",
     "markdown-it": "^7.0.1",
     "markdown-it-abbr": "^1.0.3",
     "markdown-it-attrs": "^0.6.3",
@@ -19,12 +18,7 @@
     "object-assign": "^4.1.1",
     "react-bootstrap-externaljs": "^0.30.8-silly.1",
     "react-headroom": "^2.1.2",
-    "react-helmet": "^3.2.2",
-    "react-responsive-grid": "^0.3.3",
-    "react-typography": "^0.15.0",
-    "toml-js": "0.0.8",
-    "typography": "^0.15.8",
-    "typography-plugin-code": "^0.15.0"
+    "react-helmet": "^3.2.2"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
