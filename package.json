@@ -21,7 +21,8 @@
     "object-assign": "^4.1.1",
     "react-bootstrap-externaljs": "^0.30.8-silly.1",
     "react-headroom": "^2.1.2",
-    "react-helmet": "^3.2.2"
+    "react-helmet": "^3.2.2",
+    "react-router-bootstrap": "^0.23.1"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
