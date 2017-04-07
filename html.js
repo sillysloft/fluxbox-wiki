@@ -21,6 +21,7 @@ module.exports = React.createClass({
       script = [
         <script src={prefixLink('/bootstrap-native.min.js')} />,
         <script src={prefixLink('/headroom.min.js')} />,
+        <script dangerouslySetInnerHTML={{ __html: `window.linkPrefix="${prefixLink('')}"` }} />,
         <script src={prefixLink('/static.js')} />,
       ]
     } else {
