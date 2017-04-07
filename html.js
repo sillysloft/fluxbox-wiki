@@ -1,9 +1,7 @@
+/* eslint-disable global-require, import/no-webpack-loader-syntax */
 import React from 'react'
 import Helmet from 'react-helmet'
-
 import { prefixLink } from 'gatsby-helpers'
-import { TypographyStyle, GoogleFont } from 'react-typography'
-import typography from './utils/typography'
 
 const BUILD_TIME = new Date().getTime()
 
@@ -17,8 +15,18 @@ module.exports = React.createClass({
     const head = Helmet.rewind()
 
     let css
+    let script
     if (process.env.NODE_ENV === 'production') {
-      css = <style dangerouslySetInnerHTML={{ __html: require('!raw!./public/styles.css') }} />
+      css = <link rel="stylesheet" href={prefixLink('/styles.css')} />
+      script = [
+        <script src={prefixLink('/bootstrap-native.min.js')} />,
+        <script src={prefixLink('/headroom.min.js')} />,
+        <script src={prefixLink('/static.js')} />,
+      ]
+    } else {
+      script = [
+        <script src={prefixLink(`/bundle.js?t=${BUILD_TIME}`)} />,
+      ]
     }
 
     return (
@@ -30,15 +38,14 @@ module.exports = React.createClass({
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
+          <link rel="icon" href={prefixLink('/favicon.ico')} />
           {head.title.toComponent()}
           {head.meta.toComponent()}
-          <TypographyStyle typography={typography} />
-          <GoogleFont typography={typography} />
           {css}
         </head>
         <body>
           <div id="react-mount" dangerouslySetInnerHTML={{ __html: this.props.body }} />
-          <script src={prefixLink(`/bundle.js?t=${BUILD_TIME}`)} />
+          {script}
         </body>
       </html>
     )
