@@ -28,6 +28,3 @@ node_modules
 .gatsby-context.js
 .sass-cache/
 public/
-
-# feel free to set linkprefix to whatever fits your local setup
-config.toml
