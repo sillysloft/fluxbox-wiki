@@ -1,16 +1,14 @@
 /* eslint-disable global-require, import/no-webpack-loader-syntax */
-import React from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
 import Helmet from 'react-helmet'
 import { prefixLink } from 'gatsby-helpers'
 
 const BUILD_TIME = new Date().getTime()
 
-module.exports = React.createClass({
-  propTypes () {
-    return {
-      body: React.PropTypes.string,
-    }
-  },
+
+export default class HTML extends Component {
   render () {
     const head = Helmet.rewind()
 
@@ -50,5 +48,9 @@ module.exports = React.createClass({
         </body>
       </html>
     )
-  },
-})
+  }
+}
+
+HTML.propTypes = {
+  body: PropTypes.string,
+}
