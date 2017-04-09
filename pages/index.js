@@ -1,15 +1,13 @@
 /* global window */
-import React from 'react'
+import React, { Component } from 'react'
 import { browserHistory } from 'react-router'
 import { prefixLink } from 'gatsby-helpers'
-import { config } from 'config'
+import { languages } from 'i18n'
 
-export default class Index extends React.Component {
+export default class Index extends Component {
   componentDidMount () {
     const browserLang = window.navigator.language.slice(0, 2)
-    const lang = window.localStorage.getItem('lang') || config.lang.includes(browserLang) ? browserLang : 'en'
-    console.log(lang)
-    // window.location += prefixLink(`${lang}/`)
+    const lang = window.localStorage.getItem('lang') || languages.includes(browserLang) ? browserLang : 'en'
     browserHistory.push(prefixLink(`${lang}/`))
   }
   render () {
