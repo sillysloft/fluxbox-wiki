@@ -1,13 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { config } from 'config'
 
-module.exports = React.createClass({
-  propTypes () {
-    return {
-      router: React.PropTypes.object,
-    }
-  },
+export default class Markdown extends Component {
   render () {
     const post = this.props.route.page.data
     return (
@@ -15,9 +11,18 @@ module.exports = React.createClass({
         <Helmet
           title={`${config.siteTitle} | ${post.title}`}
         />
-        <h1>{post.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: post.body }} />
       </div>
     )
-  },
-})
+  }
+}
+
+Markdown.propTypes = {
+  route: PropTypes.shape({
+    page: PropTypes.shape({
+      data: PropTypes.shape({
+        body: PropTypes.string,
+      }),
+    }),
+  }).isRequired,
+}
