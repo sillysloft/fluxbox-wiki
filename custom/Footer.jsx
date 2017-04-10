@@ -1,23 +1,18 @@
 /* global window */
-import React from 'react'
-import { prefixLink } from 'gatsby-helpers'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import pageInfo from 'utils/pageInfo'
+
 import styles from 'css/footer.module.sass'
 
-import { pages } from 'config'
 
-module.exports = React.createClass({
-  propTypes () {
-    return {
-      children: React.PropTypes.any,
-    }
-  },
+export default class Footer extends Component {
   openEditWindow (evt) {
     evt.preventDefault()
     window.open('/edit/', '_blank', 'toolbar=no,menubar=no,titlebar=no,height=600,width=800')
-  },
+  }
   render () {
-    const page = pages.filter(p => p.path).find(p => [p.path, prefixLink(p.path)].includes(this.props.location))||{ file: '', requirePath: '' }
-    // debugger
+    const { page } =pageInfo(this.props.location.pathname)
     return (
       <div className={styles.footer}>
         fluxbox-wiki.org
@@ -25,5 +20,11 @@ module.exports = React.createClass({
         <a style={{ float: 'left' }} href="/live-editor" onClick={this.openEditWindow}>eddy</a>
       </div>
     )
-  },
-})
+  }
+}
+
+Footer.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
+}
