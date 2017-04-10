@@ -7,7 +7,7 @@ export default class Markdown extends Component {
   render () {
     const post = this.props.route.page.data
     return (
-      <div className="markdown">
+      <div className="container">
         <Helmet
           title={`${config.siteTitle} | ${post.title}`}
         />
