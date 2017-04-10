@@ -54,7 +54,6 @@ export default class Navigation extends Component {
   }
 }
 
-Navigation.displayName = 'NavigationWikiPage'
 Navigation.propTypes = {
   location: PropTypes.string.isRequired,
 }
