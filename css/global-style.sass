@@ -1,4 +1,36 @@
 @import 'bootswatch-theme-simplex.css'
 @import 'font.css'
-body
-  background: #111
+
+html
+  height: 100%
+  body
+    min-height: 100%
+    display: flex
+    flex-direction: column
+    & > div:first-child
+      min-height: 100%
+      display: flex
+      flex-direction: column
+      flex: 1
+      & > div
+        min-height: 100%
+        display: flex
+        flex-direction: column
+        flex: 1
+        & > .container
+          flex: 1
+
+.fluxbg
+  background: url("images/watermark.png") no-repeat bottom right/contain
+  position: fixed
+  bottom: 50px
+  right: 0
+  height: 100%
+  width: 50%
+  opacity: 0.05
+  z-index: -1
+
+.react-root > .container
+  padding-top: 100px
+  & > .alert
+    margin-top: -30px
