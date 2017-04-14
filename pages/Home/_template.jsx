@@ -3,11 +3,12 @@ import PropTypes from 'prop-types'
 
 import { Grid, Row } from 'react-bootstrap-externaljs'
 
+import styles from 'css/home.module'
 
 export default class HomePage extends Component {
   render () {
     return (
-      <Grid>
+      <Grid className={styles.home}>
         <Row>
           {this.props.children}
         </Row>
