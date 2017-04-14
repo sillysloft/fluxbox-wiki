@@ -1,16 +1,15 @@
+/* eslint max-len: ["error", 110] */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { Link } from 'react-router'
+import { Grid, Col, Nav, NavItem } from 'react-bootstrap-externaljs'
+import { LinkContainer } from 'react-router-bootstrap'
 import { prefixLink } from 'gatsby-helpers'
 import { pages } from 'config'
-import { Grid, Col, Nav, NavItem, ListGroup, ListGroupItem } from 'react-bootstrap-externaljs'
 import pageInfo from 'utils/pageInfo'
-import { LinkContainer } from 'react-router-bootstrap'
-
 import PageIndex from 'custom/PageIndex'
 
-import styles from 'css/wiki-portal.module.sass'
+import styles from 'css/wiki-portal.module'
 
 const NavItemRouted = item => (
   <LinkContainer to={item.link}>
@@ -28,20 +27,18 @@ export default class WikiPortal extends Component {
     pages.filter(a => regex.test(a.requirePath))
       .forEach((p) => {
         const name = p.requirePath.split('/')[1]
-        navPages[name]= { path: p.data.path, title: p.data.title }
+        navPages[name] = { path: p.data.path, title: p.data.title }
       })
+
     return (
-      <Grid className={styles['wiki-portal']}>
+      <Grid className={styles.wikiPortal}>
         <Col xs={3} lg={2} className="sidebar">
           <Nav id="wiki-portal-navigation" bsStyle="pills" stacked>
             <NavItemRouted link={prefixLink(navPages.Entry.path)} text={navPages.Entry.title} />
             <NavItemRouted link={prefixLink(navPages.Index.path)} text={navPages.Index.title} />
             <NavItemRouted link={prefixLink(navPages.About.path)} text={navPages.About.title} />
-            <NavItemRouted
-              link={prefixLink(navPages.Contribute.path)}
-              text={navPages.Contribute.title}
-            />
-            <NavItemRouted link={prefixLink(navPages['Getting-Help'].path)} text={navPages['Getting-Help'].title} />
+            <NavItemRouted link={prefixLink(navPages.Contribute.path)} text={navPages.Contribute.title} />
+            <NavItemRouted link={prefixLink(navPages.GettingHelp.path)} text={navPages.GettingHelp.title} />
           </Nav>
         </Col>
         <Col xs={9} lg={10} className="content">
