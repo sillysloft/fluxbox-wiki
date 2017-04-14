@@ -3,8 +3,7 @@ title: Wiki Portal
 path: /en/wiki/
 ---
 # Fluxbox User Wiki
-[Install](/en/wiki/Install-Fluxbox/){.install}
-[Configure Fluxbox](/en/wiki/Fluxbox-Internals/){.flux}
+[Install & Configure](/en/wiki/Fluxbox/){.flux}
 
 [Input Devices](/en/wiki/Mouse-and-Keyboard/){.keys}
 [Style](/en/wiki/Fluxbox/Style/){.style}
@@ -17,16 +16,16 @@ section p {
 }
 section p a {
   display: inline-block;
-  height: 150px;
-  width: 150px;
+  height: 80px;
   background-repeat: no-repeat;
   vertical-align: top;
   text-align: center;
-  padding-top: 160px;
+  padding-top: 77px;
   font-weight: bold;
   font-size: 21px;
   color: #444;
   margin: 20px 20px 40px;
+  background-position: center
 }
 section p a:hover,
 section p a:focus {
@@ -52,10 +51,12 @@ section p a:focus {
   background-image: url(menu_hover.png);
 }
 .flux {
-  background-image: url(flux.png);
+  background-image: url(flux1.png);
+  filter: grayscale(1);
+  margin-top: 0
 }
 .flux:hover {
-  background-image: url(flux_hover.png);
+  filter: none
 }
 .style {
   background-image: url(style.png);
