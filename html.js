@@ -15,10 +15,7 @@ export default class HTML extends Component {
     let css
     let script
     if (process.env.NODE_ENV === 'production') {
-      css = [
-        <link rel="stylesheet" href={prefixLink('/styles.css')} />,
-        <link rel="stylesheet" href={prefixLink('/styles_modules.css')} />,
-      ]
+      css = <link rel="stylesheet" href={prefixLink('/styles.css')} />
       script = [
         <script src={prefixLink('/bootstrap-native.min.js')} />,
         <script src={prefixLink('/headroom.min.js')} />,
