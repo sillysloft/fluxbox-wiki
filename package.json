@@ -20,6 +20,7 @@
     "markdown-it-replace-link": "^1.0.1",
     "markdown-it-sub": "^1.0.0",
     "object-assign": "^4.1.1",
+    "octicons": "^5.0.1",
     "prop-types": "^15.5.4",
     "react-bootstrap-externaljs": "^0.30.8-silly.1",
     "react-headroom": "^2.1.2",
