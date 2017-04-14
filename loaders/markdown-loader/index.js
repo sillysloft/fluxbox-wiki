@@ -25,7 +25,7 @@ const highlight = function (str, lang) {
 /* eslint-disable no-param-reassign */
 function permalink (md) {
   md.renderer.rules.heading_open = (tokens, index) => `<${tokens[index].tag}><a id="${string(tokens[index+1].content).slugify().toString()}"></a>`
-  md.renderer.rules.heading_close = (tokens, index) => `<a href="#${string(tokens[index-1].content).slugify().toString()}"><span class="permalink glyphicon glyphicon-link"></span></a></${tokens[index].tag}>`
+  md.renderer.rules.heading_close = (tokens, index) => `<a class="permalink" href="#${string(tokens[index-1].content).slugify().toString()}"><span class="glyphicon glyphicon-link"></span></a></${tokens[index].tag}>`
 }
 /* eslint-enable no-param-reassign */
 
