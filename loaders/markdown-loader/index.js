@@ -1,9 +1,12 @@
-var frontMatter = require('front-matter')
-var markdownIt = require('markdown-it')
-var hljs = require('highlight.js')
-var objectAssign = require('object-assign')
+/* eslint-disable no-console, func-names */
+const frontMatter = require('front-matter')
+const markdownIt = require('markdown-it')
+const hljs = require('highlight.js')
+const objectAssign = require('object-assign')
+const string = require('string')
+const { linkPrefix } = require('toml').parse(String(require('fs').readFileSync('./config.toml')))
 
-var highlight = function (str, lang) {
+const highlight = function (str, lang) {
   if ((lang !== null) && hljs.getLanguage(lang)) {
     try {
       return hljs.highlight(lang, str).value
@@ -19,17 +22,34 @@ var highlight = function (str, lang) {
   return ''
 }
 
-var md = markdownIt({
+/* eslint-disable no-param-reassign */
+function permalink (md) {
+  md.renderer.rules.heading_open = (tokens, index) => `<${tokens[index].tag}><a id="${string(tokens[index+1].content).slugify().toString()}"></a>`
+  md.renderer.rules.heading_close = (tokens, index) => `<a href="#${string(tokens[index-1].content).slugify().toString()}"><span class="permalink glyphicon glyphicon-link"></span></a></${tokens[index].tag}>`
+}
+/* eslint-enable no-param-reassign */
+
+const md = markdownIt({
   html: true,
   linkify: true,
   typographer: true,
   highlight,
+  replaceLink: (link) => {
+    let prefixed = link
+    if (!/^(https?:\/\/|\/\/)/.test(link) && process.env.NODE_ENV === 'production') {
+      prefixed = link.startsWith('/') ? `${linkPrefix}${link}` : link
+    }
+    return prefixed
+  },
 })
+  .use(require('markdown-it-replace-link'))
   .use(require('markdown-it-sub'))
   .use(require('markdown-it-footnote'))
   .use(require('markdown-it-deflist'))
   .use(require('markdown-it-abbr'))
+  .use(require('markdown-it-header-sections'))
   .use(require('markdown-it-attrs'))
+  .use(permalink)
 
 module.exports = function (content) {
   this.cacheable()
