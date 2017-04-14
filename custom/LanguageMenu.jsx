@@ -15,7 +15,7 @@ const FlagIcon = item => (
 
 export default class LanguageMenu extends Component {
   render () {
-    const { language, translations } = pageInfo(this.props.location)
+    const { language, translations } = pageInfo(this.props.location.pathname)
     return (
       <NavDropdown
         title={<FlagIcon code={language} size="lg" />}
@@ -43,5 +43,7 @@ export default class LanguageMenu extends Component {
 }
 
 LanguageMenu.propTypes = {
-  location: PropTypes.string,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }),
 }

@@ -22,32 +22,35 @@ const NavItemRouted = item => (
 
 export default class Navigation extends Component {
   render () {
-    const { lang } = getPageProps(this.props.location)
+    const { language } = getPageProps(this.props.location.pathname)
     return (
       <Headroom>
-        <Navbar inverse>
+        <Navbar inverse collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
               <Link to={prefixLink('/')} className="text-muted">
                 fluxbox<span className="navbar-logo" />wiki
               </Link>
             </Navbar.Brand>
+            <Navbar.Toggle />
           </Navbar.Header>
-          <Navbar.Form pullRight>
-            <FormGroup bsSize="sm" id="duck-search">
-              <InputGroup bsSize="sm" className="animated-input slideUp">
-                <FormControl type="text" />
-              </InputGroup>
-              <Button bsStyle="primary" bsSize="sm">
-                <Glyphicon glyph="search" />
-              </Button>
-            </FormGroup>
-          </Navbar.Form>
-          <Nav bsStyle="pills" pullRight>
-            <NavItemRouted link={prefixLink(`/${lang}/wiki/`)} text="Users" />
-            <NavItemRouted link={prefixLink(`/${lang}/devel/`)} text="Developers" />
-            <LanguageMenu location={this.props.location} />
-          </Nav>
+          <Navbar.Collapse>
+            <Navbar.Form pullRight>
+              <FormGroup bsSize="sm" id="duck-search">
+                <InputGroup bsSize="sm" className="animated-input slideUp">
+                  <FormControl type="text" />
+                </InputGroup>
+                <Button bsStyle="primary" bsSize="sm">
+                  <Glyphicon glyph="search" />
+                </Button>
+              </FormGroup>
+            </Navbar.Form>
+            <Nav bsStyle="pills" pullRight>
+              <NavItemRouted link={prefixLink(`/${language}/wiki/`)} text="Users" />
+              <NavItemRouted link={prefixLink(`/${language}/devel/`)} text="Developers" />
+              <LanguageMenu location={this.props.location} />
+            </Nav>
+          </Navbar.Collapse>
         </Navbar>
       </Headroom>
     )
@@ -55,5 +58,7 @@ export default class Navigation extends Component {
 }
 
 Navigation.propTypes = {
-  location: PropTypes.string.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }),
 }

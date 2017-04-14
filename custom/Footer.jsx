@@ -1,4 +1,5 @@
 /* global window */
+/* eslint-disable class-methods-use-this */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import pageInfo from 'utils/pageInfo'
@@ -12,7 +13,7 @@ export default class Footer extends Component {
     window.open('/edit/', '_blank', 'toolbar=no,menubar=no,titlebar=no,height=600,width=800')
   }
   render () {
-    const { page } =pageInfo(this.props.location.pathname)
+    const { page } = pageInfo(this.props.location.pathname)
     return (
       <div className={styles.footer}>
         fluxbox-wiki.org
