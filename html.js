@@ -15,7 +15,10 @@ export default class HTML extends Component {
     let css
     let script
     if (process.env.NODE_ENV === 'production') {
-      css = <link rel="stylesheet" href={prefixLink('/styles.css')} />
+      css = [
+        <link rel="stylesheet" href={prefixLink('/styles.css')} />,
+        <link rel="stylesheet" href={prefixLink('/styles_modules.css')} />,
+      ]
       script = [
         <script src={prefixLink('/bootstrap-native.min.js')} />,
         <script src={prefixLink('/headroom.min.js')} />,
@@ -42,7 +45,7 @@ export default class HTML extends Component {
           {head.meta.toComponent()}
           {css}
         </head>
-        <body>
+        <body data-spy="scroll" data-target="#spytoc">
           <div id="react-mount" dangerouslySetInnerHTML={{ __html: this.props.body }} />
           {script}
         </body>
@@ -52,5 +55,5 @@ export default class HTML extends Component {
 }
 
 HTML.propTypes = {
-  body: PropTypes.string,
+  body: PropTypes.string.isRequired,
 }
