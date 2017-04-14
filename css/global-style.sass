@@ -1,3 +1,4 @@
+// @import 'bootswatch-theme-simplex.css'
 @import 'bootswatch-theme-simplex.css'
 @import 'font.css'
 
@@ -7,6 +8,7 @@ html
     min-height: 100%
     display: flex
     flex-direction: column
+    overflow-y: scroll
     & > div:first-child
       min-height: 100%
       display: flex
@@ -19,6 +21,8 @@ html
         flex: 1
         & > .container
           flex: 1
+        & > .markdown-container
+          flex: 1
 
 .fluxbg
   background: url("images/watermark.png") no-repeat bottom right/contain
@@ -30,7 +34,15 @@ html
   opacity: 0.05
   z-index: -1
 
-.react-root > .container
+.headroom-wrapper
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  z-index: 100
+
+.container > .row > .markdown-container
   padding-top: 100px
-  & > .alert
-    margin-top: -30px
+  margin: 0 auto
+  @media screen and (min-width: 992px)
+    width: 75%

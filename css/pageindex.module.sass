@@ -1,0 +1,35 @@
+.pageindex
+  & :global
+    .panel-heading
+      display: flex
+      justify-content: space-around
+      background: 0
+      border-width: 0
+      span, a
+        padding: 0 8px
+    .panel-body
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      flex-wrap: wrap
+      &::before
+        content: initial
+      .panel
+        border: 0
+        box-shadow: 0 0
+        position: relative
+        padding: 20px
+        .panel-heading
+          display: block
+          background: 0
+          padding: 4px 8px
+          position: absolute
+          left: 0
+          top: 0
+        .panel-body
+          padding: 4px 8px
+        .list-group-item
+          border-width: 0
+          padding: 0 0 0 15px
+          a
+            color: #444
