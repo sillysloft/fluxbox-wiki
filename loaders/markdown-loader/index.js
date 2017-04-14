@@ -22,9 +22,41 @@ const highlight = function (str, lang) {
   return ''
 }
 
+function createTOC (tocItems) {
+  let lastLevel = 0
+  let htmlArray = tocItems.map(({ level, text, slug }, i) => {
+    const isDropdown = tocItems[i+1]?tocItems[i+1].level>level:false
+    let html = ''
+
+    if (level > lastLevel) {
+      html += '<ul class="dropdown-menu">'
+      if (level>lastLevel+1) html+='<li class="dropdown"><ul class="dropdown-menu">'.repeat(level-lastLevel-1)
+    } else {
+      html += '</li></ul>'.repeat(lastLevel - level)
+      html += '</li>'
+    }
+    lastLevel = level
+
+    return `${html}<li class="${isDropdown?'dropdown':''}">\n<a class="${isDropdown?'dropdown-toggle':''}" href="#${slug}">${text}</a>\n`
+  }).join('')
+
+  htmlArray += '</li></ul>'.repeat(lastLevel)
+  htmlArray = htmlArray.slice(26, -5)
+
+  return htmlArray
+}
+
+const tocItems = []
 /* eslint-disable no-param-reassign */
 function permalink (md) {
-  md.renderer.rules.heading_open = (tokens, index) => `<${tokens[index].tag}><a id="${string(tokens[index+1].content).slugify().toString()}"></a>`
+  md.renderer.rules.heading_open = (tokens, index) => {
+    tocItems.push({
+      level: tokens[index].tag[1],
+      text: tokens[index+1].content,
+      slug: string(tokens[index+1].content).slugify().toString(),
+    })
+    return `<${tokens[index].tag}><a id="${string(tokens[index+1].content).slugify().toString()}"></a>`
+  }
   md.renderer.rules.heading_close = (tokens, index) => `<a class="permalink" href="#${string(tokens[index-1].content).slugify().toString()}"><span class="glyphicon glyphicon-link"></span></a></${tokens[index].tag}>`
 }
 /* eslint-enable no-param-reassign */
@@ -55,9 +87,11 @@ module.exports = function (content) {
   this.cacheable()
   const meta = frontMatter(content)
   const body = md.render(meta.body)
+  const toc = createTOC(tocItems.slice())
   const result = objectAssign({}, meta.attributes, {
-    body,
+    body, toc,
   })
+  tocItems.length = 0
   this.value = result
   return `module.exports = ${JSON.stringify(result)}`
 }
