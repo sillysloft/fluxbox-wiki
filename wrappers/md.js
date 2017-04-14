@@ -3,11 +3,13 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { config } from 'config'
 
+import style from 'css/markdown.module.sass'
+
 export default class Markdown extends Component {
   render () {
     const post = this.props.route.page.data
     return (
-      <div className="container">
+      <div className={`${style['markdown-container']} markdown-container`}>
         <Helmet
           title={`${config.siteTitle} | ${post.title}`}
         />

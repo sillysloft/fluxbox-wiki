@@ -1,0 +1,28 @@
+/*
+ * Home pages (Welcome Message in a jumbotron)
+ */
+.markdown-container
+  & :global
+    .fluxbox-versions
+      text-align: center
+      display: flex
+      align-items: flex-end
+      padding: 40px 0
+    .jumbotron
+      text-align: center
+      margin: 0 auto
+      background-color: rgba(230, 230, 230, 0.4)
+      border-radius: 8px
+      border: 2px solid rgba(230, 230, 230, 1)
+      h1
+        margin-bottom: 35px
+        line-height: 1.1 !important
+    h1, h2
+      padding-bottom: 3px
+      border-bottom: 1px solid hsla(0,0%,0%,0.07)
+    h1, h2, h3, h4, h5, h6
+      a[id]
+        position: relative
+        display: block
+        visibility: hidden
+        top: -50px
