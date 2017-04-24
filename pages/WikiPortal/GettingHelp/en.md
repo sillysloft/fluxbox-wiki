@@ -17,7 +17,7 @@ There is no forum dedicated specifically to Fluxbox, but most distributions have
 [Arch](//bbs.archlinux.org), [Debian](//forums.debian.net)
 
 #### Fluxbox Community Chat
-Join our <a href='IRC-Chat' onclick="event.preventDefault();window.open('/fluxbox-wiki/iframe/', '\_blank', 'toolbar=no,menubar=no,titlebar=no,height=600,width=800')">chat room</a> and start talking right away.  
+Join our <a href='IRC-Chat' onclick="event.preventDefault();window.open('/fluxbox-wiki/chat/', '\_blank', 'toolbar=no,menubar=no,titlebar=no,height=600,width=800')">chat room</a> and start talking right away.  
 There are always ~70 users online, but most of them never disconnect and are not necessarily sitting at their computers right now, also, if somebody has no answer, he probably won't tell you that he doesn't know and rather stay quiet, **therefore**:  
 **just post you question in the channel** and **don't expect a quick answer**.  
 Then you wait and wait and wait, if you get no response at all, come back an other time or day.  

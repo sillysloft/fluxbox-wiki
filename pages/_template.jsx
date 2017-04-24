@@ -4,8 +4,6 @@ import PropTypes from 'prop-types'
 import { prefixLink } from 'gatsby-helpers'
 
 import Navigation from 'custom/Navigation'
-import NavigationEditor from 'custom/NavigationEditor'
-import NavigationIframe from 'custom/NavigationIframe'
 import Footer from 'custom/Footer'
 
 import 'css/global-style'
@@ -18,15 +16,12 @@ const checkPath = (paths, location) => ![].every.call(
 
 export default class BaseTemplate extends Component {
   render () {
+    const popup = checkPath(['/chat/', '/editor/'], this.props.location.pathname)
     return (
       <div className="react-root">
-        {{
-          [prefixLink('/iframe/')]: <NavigationIframe location={this.props.location} />,
-          [prefixLink('/edit/')]: <NavigationEditor location={this.props.location} />,
-        }[this.props.location.pathname]||<Navigation location={this.props.location} />}
-        <div className="fluxbg" />
+        {popup || <Navigation location={this.props.location} />}
         {this.props.children}
-        {checkPath('/iframe/', this.props.location.pathname) ? '' : <Footer location={this.props.location} />}
+        {popup || <Footer location={this.props.location} />}
       </div>
     )
   }

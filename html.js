@@ -26,7 +26,7 @@ export default class HTML extends Component {
       ]
       if (checkPath('/editor/', this.props.location.pathname)) {
         script = <script src={prefixLink('/bundle-editor.js')} />
-      } else if (!checkPath(['/iframe/', '/editor/'], this.props.location.pathname)) {
+      } else if (!checkPath(['/chat/', '/editor/'], this.props.location.pathname)) {
         script = [
           <script src={prefixLink('/bootstrap-native.min.js')} />,
           <script src={prefixLink('/headroom.min.js')} />,

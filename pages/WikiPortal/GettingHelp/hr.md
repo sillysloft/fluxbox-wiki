@@ -17,4 +17,4 @@ Well then, go read something useful, there's the [FAQ-Section](), there are [Man
 If you want to paste some configuration file, code snippet, whatever, if it's more than 2 lines,
 please use http://fluxbox.pastebin.ca/ or http://ompldr.org/paste or http://pastebin.ca or one of the other 10000 web-paste-services
 
-<a href='IRC-Chat' onclick="event.preventDefault();window.open('/fluxbox-wiki/iframe/', '_blank', 'toolbar=no,menubar=no,titlebar=no,height=600,width=800')">chat window</a>
+<a href='IRC-Chat' onclick="event.preventDefault();window.open('/fluxbox-wiki/chat/', '_blank', 'toolbar=no,menubar=no,titlebar=no,height=600,width=800')">chat window</a>

@@ -1,6 +1,6 @@
 ---
 title: Fluxbox IRC Chat
-path: /iframe/
+path: /chat/
 ---
 <style>
 .navbar-inverse .navbar-brand:hover {
