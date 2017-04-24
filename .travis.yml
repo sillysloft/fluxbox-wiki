@@ -4,7 +4,7 @@ node_js:
 before_install:
   - git clone -b master https://github.com/sillyslux/fluxbox-wiki.git pages
   - ls
-script: npm build
+script: npm run-script travis-build
 deploy:
   provider: pages
   skip_cleanup: true
