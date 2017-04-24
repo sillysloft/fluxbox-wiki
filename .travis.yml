@@ -4,7 +4,9 @@ node_js:
 before_install:
   - git clone -b master https://github.com/sillyslux/fluxbox-wiki.git pages
   - cp -r _pages/* pages
-script: npm run-script travis-build
+script:
+  - npm run-script travis-build
+  - webpack --config editor/webpack.config.js
 before_deploy:
   - rm -rf css config.toml utils package.json editor fonts html.js loaders node_modules gatsby-browser.js i18n.toml .eslintrc wrappers gatsby-node.js LICENSE .travis.yml static custom README.md .gitignore pages
   - mv public/* .

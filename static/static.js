@@ -30,6 +30,7 @@
   const goSearch = () => w.open(
     `https://duckduckgo.com/?q=site%3Awww.fluxbox-wiki.org%20${searchInput.value}`
   )
+  const prefixLink=lnk=>`"${linkPrefix}${lnk}"`
 
   // add functionality
   new Headroom(headroom, {
@@ -84,7 +85,7 @@
     console.log(history)
     document.querySelector('.subnav-history .nav').innerHTML = history.map(p => `<li role="presentation" class=""><a href="${p.path}" role="menuitem" tabindex="-1">${p.title}</a></li>`).join('')
 
-    const editorlnk = document.querySelector('[href=eddy]').addEventListener('click', evt => { evt.preventDefault();window.open('/edit/', '_blank', 'toolbar=no,menubar=no,titlebar=no,height=600,width=800')
+    const editorlnk = document.querySelector(`[href=${prefixLink('editor/')}]`).addEventListener('click', evt => { evt.preventDefault();window.open('/edit/', '_blank', 'toolbar=no,menubar=no,titlebar=no,height=600,width=800')
     })
     document.querySelector('.glyphicon-search').addEventListener('click',function(){
       document.querySelector('#duck-search input').hasFocus||document.querySelector('#duck-search input').focus()})
