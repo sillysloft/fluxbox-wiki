@@ -3,6 +3,7 @@ node_js:
   - "7"
 before_install:
   - git clone -b master https://github.com/sillyslux/fluxbox-wiki.git pages
+  - cp _pages/* pages
 script: npm run-script travis-build
 before_deploy:
   - rm -rf css config.toml utils package.json editor fonts html.js loaders node_modules gatsby-browser.js i18n.toml .eslintrc wrappers gatsby-node.js LICENSE .travis.yml static custom README.md .gitignore pages
@@ -10,10 +11,13 @@ before_deploy:
   - ls -la public
   - ls -la .
   - rm public/.styles.css && rmdir public
+  - env
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  on:
+    branch: ssg
 git:
   depth: 1
 branches:
