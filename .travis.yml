@@ -2,12 +2,7 @@ language: node_js
 node_js:
   - "7"
 before_install:
-  - ls
-  - rm -r *
-  - git clone -b ssg https://github.com/sillyslux/fluxbox-wiki.git
   - git clone -b master https://github.com/sillyslux/fluxbox-wiki.git pages
-install:
-  - npm install
 deploy:
   provider: pages
   skip_cleanup: true
