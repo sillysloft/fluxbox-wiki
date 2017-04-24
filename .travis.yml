@@ -8,7 +8,8 @@ script: npm run-script travis-build
 before_deploy:
   - rm -r css config.toml utils package.json editor fonts html.js loaders gatsby-browser.js i18n.toml .eslintrc wrappers gatsby-node.js LICENSE .travis.yml static custom README.md .gitignore
   - mv pages/* .
-  - rmdir pages
+  - ls -la pages
+  - rm pages/.styles.css && rmdir pages
 deploy:
   provider: pages
   skip_cleanup: true
