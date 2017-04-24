@@ -1,4 +1,5 @@
 noProductionJavascript = true
 
-siteTitle="Fluxbox Wiki"
+siteTitle  = "Fluxbox Wiki"
+prodDomain = "//fluxbox-wiki.org"
 linkPrefix = ""
