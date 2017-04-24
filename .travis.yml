@@ -3,6 +3,8 @@ node_js:
   - "7"
 before_install:
   - git clone -b master https://github.com/sillyslux/fluxbox-wiki.git pages
+  - ls
+script: npm build
 deploy:
   provider: pages
   skip_cleanup: true
