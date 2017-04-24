@@ -7,6 +7,11 @@ import { prefixLink } from 'gatsby-helpers'
 
 const BUILD_TIME = new Date().getTime()
 
+const checkPath = (paths, location) => ![].every.call(
+  (Array.isArray(paths) && paths) || [paths],
+  path => ![path, prefixLink(path)].includes(location),
+)
+
 
 export default class HTML extends Component {
   render () {
@@ -15,19 +20,24 @@ export default class HTML extends Component {
     let css
     let script
     if (process.env.NODE_ENV === 'production') {
-      css = <link rel="stylesheet" href={prefixLink('/styles.css')} />
-      script = [
-        <script src={prefixLink('/bootstrap-native.min.js')} />,
-        <script src={prefixLink('/headroom.min.js')} />,
+      css = [
+        <link rel="stylesheet" href={prefixLink('/styles.css')} />,
         <script dangerouslySetInnerHTML={{ __html: `window.linkPrefix="${prefixLink('')}"` }} />,
-        <script src={prefixLink('/static.js')} />,
       ]
+      if (checkPath('/editor/', this.props.location.pathname)) {
+        script = <script src={prefixLink('/bundle-editor.js')} />
+      } else if (!checkPath(['/iframe/', '/editor/'], this.props.location.pathname)) {
+        script = [
+          <script src={prefixLink('/bootstrap-native.min.js')} />,
+          <script src={prefixLink('/headroom.min.js')} />,
+          <script src={prefixLink('/static.js')} />,
+        ]
+      }
     } else {
       script = [
         <script src={prefixLink(`/bundle.js?t=${BUILD_TIME}`)} />,
       ]
     }
-
     return (
       <html lang="en">
         <head>
@@ -53,4 +63,7 @@ export default class HTML extends Component {
 
 HTML.propTypes = {
   body: PropTypes.string.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 }
