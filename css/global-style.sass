@@ -24,15 +24,17 @@ html
         & > .markdown-container
           flex: 1
 
-.fluxbg
-  background: url("images/watermark.png") no-repeat bottom right/contain
-  position: fixed
-  bottom: 50px
-  right: 0
-  height: 100%
-  width: 50%
-  opacity: 0.05
-  z-index: -1
+.react-root
+  &::after
+    background: url("images/watermark.png") transparent right 0px bottom 50px / 50% auto no-repeat fixed
+    content: ''
+    opacity: 0.05
+    height: 100%
+    width: 100%
+    position: absolute
+    top: 0
+    left: 0
+    z-index: -1
 
 .headroom-wrapper
   position: fixed

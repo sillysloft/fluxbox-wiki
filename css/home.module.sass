@@ -1,9 +1,13 @@
 .home
   padding-top: 100px
   margin: 0 auto
+
   @media screen and (min-width: 992px)
     width: 75%
+
   & :global
+    .permalink
+      display: none
     .fluxbox-versions
       text-align: center
       display: flex
@@ -18,7 +22,5 @@
       h1
         margin-bottom: 35px
         line-height: 1.1 !important
-        .permalink
-          display: none
       .btn
         margin-top: 20px
