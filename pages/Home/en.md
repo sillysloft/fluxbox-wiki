@@ -2,35 +2,27 @@
 title: Fluxbox Wiki
 path: /en/
 ---
-<div class="jumbotron">
-
-# [Fluxbox] Wiki
+# [Fluxbox] Wiki {.jumbotron}
 The Wiki for your beloved Window-Manager.
 
 There are 2 sections, [Fluxbox Users] and [Fluxbox Developers].
 
 [Learn more]{.btn .btn-primary}
 
-</div>
 
-<div class="fluxbox-versions">
-<div class="col-xs-3 alert alert-danger">
-
-#### Next
+# {.fluxbox-versions}
+#### Next {.col-xs-3 .alert .alert-danger}
 **1.4.0** ([changelog])
 
-</div><div class="col-xs-4 col-xs-push-1 alert alert-danger" style="font-size: 1.2em">
 
-#### Current Release{style=font-size:1.6em}
-**1.3.7** (2015-02-08) [download]
+#### Current Release {.col-xs-4 .col-xs-push-1 .alert .alert-danger style="font-size: 1.6em"}
+**1.3.7** (2015-02-08)
 
-</div><div class="col-xs-3 col-xs-push-2 alert alert-danger">
+--- [download] ---{style="font-size: .6em"}
 
-#### Previous
+
+#### Previous {.col-xs-3 .col-xs-push-2 .alert .alert-danger}
 **1.3.6** (2015-01-05)
-
-</div>
-</div>
 
 
 [Fluxbox]: https://fluxbox.org
