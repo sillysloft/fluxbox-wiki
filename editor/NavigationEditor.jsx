@@ -31,8 +31,6 @@ const icons = (scope, names) => names.map(iconName => (
 // debugger
 
 const ghc = token => new GitHubClient({ token, baseUri: 'https://api.github.com' })
-// sillyslux 61cf6135a66a2c1389015626bbe40296db4af736
-// sillysloft c4868766ae35c72feaa1cee548ecd39e56770d47
 
 // githubCliDotCom.getData({ path: '/user' })
 //   .then((response) => {
