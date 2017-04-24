@@ -60,13 +60,13 @@
       historyEl&&historyEl.classList.remove('slideUp')
       breadcrumbs&&breadcrumbs.classList.add('slideUp')
     })
-    document.querySelector('.subnav-pagetree').addEventListener('mouseleave', () => {
+    document.querySelector('.subnav-pagetree')&&document.querySelector('.subnav-pagetree').addEventListener('mouseleave', () => {
       visible = false
       setTimeout(()=>{
         !visible&&breadcrumbs&&breadcrumbs.classList.add('slideUp')
       }, 500)
     })
-    document.querySelector('.subnav-history').addEventListener('mouseleave', () => {
+    document.querySelector('.subnav-history')&&document.querySelector('.subnav-history').addEventListener('mouseleave', () => {
       visible = false
       setTimeout(()=>{
         !visible&&historyEl&&historyEl.classList.add('slideUp')
@@ -83,7 +83,7 @@
     history.length=history.length>5?5:history.length
     window.sessionStorage.setItem('history', JSON.stringify(history))
     console.log(history)
-    document.querySelector('.subnav-history .nav').innerHTML = history.map(p => `<li role="presentation" class=""><a href="${p.path}" role="menuitem" tabindex="-1">${p.title}</a></li>`).join('')
+    document.querySelector('.subnav-history .nav')&&document.querySelector('.subnav-history .nav').innerHTML = history.map(p => `<li role="presentation" class=""><a href="${p.path}" role="menuitem" tabindex="-1">${p.title}</a></li>`).join('')
 
     const editorlnk = document.querySelector(`[href=${prefixLink('editor/')}]`).addEventListener('click', evt => { evt.preventDefault();window.open('/edit/', '_blank', 'toolbar=no,menubar=no,titlebar=no,height=600,width=800')
     })
