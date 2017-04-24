@@ -6,10 +6,11 @@ before_install:
   - ls
 script: npm run-script travis-build
 before_deploy:
-  - rm -r css config.toml utils package.json editor fonts html.js loaders gatsby-browser.js i18n.toml .eslintrc wrappers gatsby-node.js LICENSE .travis.yml static custom README.md .gitignore
-  - mv pages/* .
-  - ls -la pages
-  - rm pages/.styles.css && rmdir pages
+  - rm -r css config.toml utils package.json editor fonts html.js loaders gatsby-browser.js i18n.toml .eslintrc wrappers gatsby-node.js LICENSE .travis.yml static custom README.md .gitignore pages
+  - mv public/* .
+  - ls -la public
+  - ls -la .
+  - rm public/.styles.css && rmdir public
 deploy:
   provider: pages
   skip_cleanup: true
