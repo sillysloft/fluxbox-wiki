@@ -1,5 +1,5 @@
 ---
-title: O Fluxboxu i FLuxbox Wikiju
+title: O Fluxboxu i Wikiju
 path: /hr/wiki/O-Fluxboxu/
 ---
 # Fluxbox

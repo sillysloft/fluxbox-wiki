@@ -1,0 +1,7 @@
+script:
+  - env
+  - export R_CONTENT="Content-Type:"; R_CONTENT="$R_CONTENT application/json"
+  - export R_ACCEPT="Accept:"; R_ACCEPT="$R_ACCEPT application/vnd.travis-ci.2+json"
+  - export R_VERSION="Travis-API-Version:"; R_VERSION="$R_VERSION 3"
+  - export R_AUTH="Authorization:"; R_AUTH="$R_AUTH token $TRAVIS_TOKEN"
+  - curl -s -X POST -H "$R_CONTENT" -H "$R_ACCEPT" -H "$R_VERSION" -H "$R_AUTH" https://api.travis-ci.org/repo/sillyslux%2Ffluxbox-wiki-ssg/requests

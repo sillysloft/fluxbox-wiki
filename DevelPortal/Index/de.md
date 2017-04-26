@@ -2,4 +2,4 @@
 title: Wiki - Index
 path: /de/devel/Index/
 ---
-# Index
+# Entwickler-Wiki --- Seiten-Index
