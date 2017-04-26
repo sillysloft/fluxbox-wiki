@@ -22090,12 +22090,14 @@
 	              _reactBootstrapExternaljs.OverlayTrigger,
 	              { placement: 'bottom', overlay: _react2.default.createElement(
 	                  _reactBootstrapExternaljs.Tooltip,
-	                  null,
+	                  { id: 'user-menu' },
 	                  'Github User'
 	                ) },
 	              _react2.default.createElement(
 	                _reactBootstrapExternaljs.Button,
-	                { bsStyle: 'primary', bsSize: 'sm' },
+	                { bsStyle: 'primary', bsSize: 'sm', onClick: function onClick(e) {
+	                    return _this4.open(e);
+	                  } },
 	                _react2.default.createElement(_reactBootstrapExternaljs.Glyphicon, { glyph: 'user' })
 	              )
 	            )
