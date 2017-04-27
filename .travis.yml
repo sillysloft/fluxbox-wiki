@@ -1,7 +1,4 @@
+language: node_js
 script:
   - env
-  - export R_CONTENT="Content-Type:"; R_CONTENT="$R_CONTENT application/json"
-  - export R_ACCEPT="Accept:"; R_ACCEPT="$R_ACCEPT application/vnd.travis-ci.2+json"
-  - export R_VERSION="Travis-API-Version:"; R_VERSION="$R_VERSION 3"
-  - export R_AUTH="Authorization:"; R_AUTH="$R_AUTH token $TRAVIS_TOKEN"
-  - curl -s -X POST -H "$R_CONTENT" -H "$R_ACCEPT" -H "$R_VERSION" -H "$R_AUTH" https://api.travis-ci.org/repo/sillyslux%2Ffluxbox-wiki-ssg/requests
+  - node -e "e=process.env;d='';h=require('https');h.get({hostname:'api.github.com',path:'/repos/'+e.TRAVIS_REPO_SLUG+'/git/commits/'+e.TRAVIS_COMMIT, headers:{'User-Agent':'travis'}},res=>{res.on('data',c=>d+=c);res.on('end',()=>{d=JSON.parse(d);p=JSON.stringify({request:{config:{env:{C_AUTHOR_NAME:d.author.name,C_AUTHOR_MAIL:d.author.email,C_COMMITTER_NAME:d.committer.name,C_COMMITTER_MAIL:d.committer.email,C_MESSAGE:d.message,C_URL:d.html_url}}}});require('https').request({hostname:'api.travis-ci.org',path:'/repo/sillyslux%2Ffluxbox-wiki-ssg/requests',method:'POST',headers:{'Content-Type':'application/json','Accept':'application/vnd.travis-ci.2+json','Travis-API-Version':'3','Authorization':'token '+e.TRAVIS_TOKEN,'Content-Length':Buffer.byteLength(p)}},res=>res.on('data',f=>console.log(f.toString()))).write(p)})})"
