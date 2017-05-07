@@ -4,11 +4,11 @@ version: 5
 path: /en/wiki/Keyboard-Shortcuts/
 ---
 # Keyboard Shortcuts
-The keyboard-shortcuts-file is defined in Fluxbox's [init-file](/en/wiki/Init-File).
+The keyboard-shortcuts-file is defined in Fluxbox's [init-file].
 By default ~/.fluxbox/keys is used, you can modify it to your liking or use a new empty file if you want.
-After editing the keys file, you need to tell fluxbox to reload the shortcut definitions by running the [fluxbox command](/en/wiki/Fluxbox-Commands/#reconfigure) ``reconfigure``.  
+After editing the keys file, you need to tell fluxbox to reload the shortcut definitions by running the [fluxbox command] ``reconfigure``.  
 
-There's also a dedicated [man page](/en/wiki/Install/#man-pages) ``fluxbox-keys``
+There's also a dedicated [man page] ``fluxbox-keys``
 
 ## Special Keys
 If you want to assign some special key that your keyboard has to offer, you can use ``xev`` to reveal it's keycode and symname, then assign an action in your keys file.  
@@ -142,3 +142,7 @@ See also: the example for a [custom exit menu](/en/wiki/Fluxbox-Menus/#custom-ex
 # use Windows-Key + Space to open an otherwise kind-of-hidden menu
 Mod4 space   :CustomMenu ~/.fluxbox/custom-menu
 ```
+
+[init-file]: /WikiPages/Fluxbox/Init/en.md
+[fluxbox command]: /en/wiki/Fluxbox-Commands/#reconfigure
+[man page]: /WikiPages/Fluxbox/en.md#man-pages

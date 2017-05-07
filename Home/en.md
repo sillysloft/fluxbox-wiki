@@ -25,7 +25,7 @@ There are 2 sections, [Fluxbox Users] and [Fluxbox Developers].
 **1.3.6** (2015-01-05)
 
 
-[Fluxbox]: https://fluxbox.org
+[Fluxbox]: http://fluxbox.org
 
 [Fluxbox Users]: /en/wiki/
 [Fluxbox Developers]: /en/devel/

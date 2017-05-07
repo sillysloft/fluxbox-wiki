@@ -25,7 +25,7 @@ Ima dva odjela, za [Fluxbox Korisnike] i [Fluxbox Developere].
 **1.3.6** (2015-01-05)
 
 
-[Fluxbox]: https://fluxbox.org
+[Fluxbox]: http://fluxbox.org
 
 [Fluxbox Korisnike]: /hr/wiki/
 [Fluxbox Developere]: /hr/devel/

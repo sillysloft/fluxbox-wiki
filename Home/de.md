@@ -25,7 +25,7 @@ Es gibt 2 Bereiche, für [Fluxbox-Benutzer] und [Fluxbox-Entwickler].
 **1.3.6** (2015-01-05)
 
 
-[Fluxbox]: https://fluxbox.org
+[Fluxbox]: http://fluxbox.org
 
 [Fluxbox-Benutzer]: /de/wiki/
 [Fluxbox-Entwickler]: /de/devel/
